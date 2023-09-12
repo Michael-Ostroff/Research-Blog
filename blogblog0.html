@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16" />
+
+
+
+<title>Michael's Research Blog</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+<header id="header">
+<a href="index.html" class="logo"><strong>Hahn</strong> AI</a>
+</header>
+
+<section id="main">
+<div class="inner">
+<h4>Test Post</h4>
+<p><span class="image left"><img src="https://raw.githubusercontent.com/williamedwardhahn/HahnAI/main/blog/compressed_image_0.jpeg" alt="" /></span>Information</p>
+				
+</div>
+</section>
+<br>
+<br><br><br>
+<footer id="footer">
+<div class="copyright">
+&copy; Hahn AI <a href="https://Hahn.ai">Main Site</a>.
+</div>
+</footer>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+function generateNavigation() {
+    let currentURL = window.location.href;
+    let baseURL = currentURL.substring(0, currentURL.lastIndexOf("/") + 1);
+    let currentPage = currentURL.substring(currentURL.lastIndexOf("/") + 1);
+    let currentPageNumber = parseInt(currentPage.replace(/\D/g,''));
+
+    let prevPageNumber = currentPageNumber - 1;
+    let nextPageNumber = currentPageNumber + 1;
+    let nextPage;
+    
+    let prevPage = baseURL + "blog" + prevPageNumber + ".html";
+    if (nextPageNumber > 0) {
+        nextPage = baseURL + "blog" + 0 + ".html";
+    } else {
+        nextPage = baseURL + "blog" + nextPageNumber + ".html";
+    }
+    let firstPage = baseURL + "blog0.html";
+    let lastPage  = baseURL + "blog" + 0 + ".html";
+    let indexPage = baseURL + "blog-1.html"; 
+
+    let navigationHTML = `
+        <br><br><br><center><nav>
+            <a href="${indexPage}" class="index">Index</a>  |
+            <a href="${firstPage}" class="first">First</a>  |  
+            <a href="${prevPage}" class="previous">Previous</a>  |  
+            <a href="${nextPage}" class="next">Next</a>  | 
+            <a href="${lastPage}" class="last">Last</a>
+        </nav></center>
+    `;
+
+    // Add the navigation to the end of each section
+    let sections = document.getElementsByTagName('section');
+    
+    sections[0].innerHTML += navigationHTML;
+    
+}
+// Call the function here
+generateNavigation();
+</script>
+</body>
+</html>
